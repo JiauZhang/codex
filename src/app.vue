@@ -2,7 +2,9 @@
 import { ref } from 'vue'
 import MarkdownEditor from '@/components/MarkdownEditor.vue'
 
-const markdownContent = ref(`# Welcome to My Markdown Editor
+const markdownContent = ref(
+`
+# Welcome to My Markdown Editor
 
 This is a **markdown editor** built with:
 
@@ -17,7 +19,16 @@ function hello() {
   console.log('Hello, world!')
 }
 \`\`\`
-`)
+
+行内公式：\$E=mc^2\$
+
+块级公式：
+\$\$
+\\sum_{i=1}^n i = \\frac{n(n+1)}{2}
+\$\$
+`
+)
+
 </script>
 
 <template>

@@ -1,6 +1,7 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import MarkdownIt from 'markdown-it'
+import mathjax3 from 'markdown-it-mathjax3'
 import { createHighlighter } from 'shiki'
 
 const props = defineProps({
@@ -38,6 +39,11 @@ onMounted(async () => {
         console.error('Error highlighting code:', e)
         return code
       }
+    }
+  }).use(mathjax3, {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
     }
   })
 })
