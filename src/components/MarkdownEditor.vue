@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import MarkdownIt from 'markdown-it'
-import mathjax3 from 'markdown-it-mathjax3'
+import mk from '@/lib/markdown-it-katex'
 import { createHighlighter } from 'shiki'
 
 const props = defineProps({
@@ -23,7 +23,7 @@ onMounted(async () => {
     themes: ['github-dark', 'github-light'],
     langs: ['javascript', 'typescript', 'html', 'css', 'json', 'bash', 'markdown']
   })
-  
+
   md.value = new MarkdownIt({
     html: true,
     linkify: true,
@@ -40,12 +40,7 @@ onMounted(async () => {
         return code
       }
     }
-  }).use(mathjax3, {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']],
-    }
-  })
+  }).use(mk)
 })
 
 const htmlContent = computed(() => {
