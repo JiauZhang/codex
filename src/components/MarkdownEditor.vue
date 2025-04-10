@@ -40,7 +40,7 @@ onMounted(async () => {
         return code
       }
     }
-  }).use(mk)
+  }).use(mk, {output: 'mathml'})
 })
 
 const htmlContent = computed(() => {

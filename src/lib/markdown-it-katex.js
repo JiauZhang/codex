@@ -150,8 +150,6 @@ function math_block(state, start, end, silent){
 }
 
 export default function math_plugin(md, options) {
-    // Default options
-
     options = options || {};
 
     // set KaTeX as the renderer for markdown-it-simplemath
