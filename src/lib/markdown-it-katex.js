@@ -1,12 +1,3 @@
-/* Process inline math */
-/*
-Like markdown-it-simplemath, this is a stripped down, simplified version of:
-https://github.com/runarberg/markdown-it-math
-
-It differs in that it takes (a subset of) LaTeX as input and relies on KaTeX
-for rendering output.
-*/
-
 import katex from 'katex';
 
 // Test if potential opening or closing delimieter
@@ -30,10 +21,7 @@ function isValidDelim(state, pos) {
         can_open = false;
     }
 
-    return {
-        can_open: can_open,
-        can_close: can_close
-    };
+    return {can_open: can_open, can_close: can_close};
 }
 
 function math_inline(state, silent) {

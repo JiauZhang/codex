@@ -2,6 +2,7 @@
 import { ref, computed, onMounted } from 'vue'
 import MarkdownIt from 'markdown-it'
 import mk from '@/lib/markdown-it-katex'
+import mm from '@/lib/markdown-it-mermaid'
 import { createHighlighter } from 'shiki'
 
 const props = defineProps({
@@ -40,7 +41,7 @@ onMounted(async () => {
         return code
       }
     }
-  }).use(mk, {output: 'mathml'})
+  }).use(mk, {output: 'mathml'}).use(mm)
 })
 
 const htmlContent = computed(() => {
